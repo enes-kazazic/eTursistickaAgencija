@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balkan Travel</title>
+    <!--fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <link href="~/Template/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Template/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Promenade Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <!-- js -->
+    <script type="text/javascript" src="~/Template/js/jquery.min.js"></script>
+    <!-- js -->
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner">
+        <div class="col-md-2 banner-left">
+            <div class="banner-fix">
+                <div class="logo">
+                    <h1>
+                        <a href="index.html">
+                            Balkan Travel
+                        </a>
+                    </h1>
+                </div>
+                <div class="navigation">
+                    <span class="menu"><img src="~/Template/images/menu.png" alt="" /></span>
+                    <ul class="nav1">
+                        <li><a href="">Početna</a></li>
+                        <li><span></span></li>
+                        <li><a id="destinacije" href="">Destinacije</a></li>
+                        <li><span></span></li>
+                        <li><a id="smjestaj" class="active" href="/Smjestaj/Lista">Smještaji</a></li>
+                        <li><span></span></li>
+                        <li><a href="">Auta</a></li>
+                        <li><span></span></li>
+                        <li><a href="">Uposlenici</a></li>
+                        <li><span></span></li>
+                        <li><a href="">Račun</a></li>
+                    </ul>
+                    <!-- script for menu -->
+                    <script>
+
+											$( "span.menu" ).click(function() {
+											$( "ul.nav1" ).slideToggle( 300, function() {
+											 // Animation complete.
+											});
+											});
+                    </script>
+                    <!-- //script for menu -->
+                </div>
+                <div class="social-icons">
+                    <ul>
+                        <li><a class="square" href="#"></a></li>
+                        <li><a class="twitt" href="#"></a></li>
+                        <li><a class="facebook" href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Blank">
+            @RenderBody();
+        </div>
+    </div>
+    <!-- //banner -->
+</body>
+</html>

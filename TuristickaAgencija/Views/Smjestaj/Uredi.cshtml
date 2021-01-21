@@ -1,0 +1,91 @@
+﻿@using TuristickaAgencija.ViewModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "Admin";
+}
+
+@model SmjestajUrediVM
+
+<div class="col-md-10 banner-right">
+    <!--start-booking-->
+    <div class="booking">
+        <div class="booking-main">
+            <div class="booking-top">
+                <div class="col-md-5 booking-top-left">
+                    <div class="card-header">
+                        <a href="/Smjestaj/Lista" style="cursor: pointer">
+                            <h4 class="card-title">Smještaj</h4>
+                        </a>
+                        <p class="card-category">> Dodaj</p>
+                    </div>
+                    <form asp-controller="Smjestaj" asp-action="Uredi" method="post">
+                        <div class="booking-form">
+                            <div class="b_room">
+                                <div class="booking_room">
+                                    <div class="reservation">
+                                        <ul>
+                                            <input asp-for="Id" hidden/>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Naziv: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="text" asp-for="Naziv">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Broj ugovora: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="text" asp-for="BrojUgovora">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Provizija po osobi: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="text" asp-for="ProvizijaPoOsobi">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left" style="float: right;">
+                                                <input type="submit" value="Dodaj" class="btn btn-style btn-primary"/>
+                                            </li>
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!---->
+
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+    <!--end-booking-->
+    <!--strat-date-piker-->
+    <link rel="stylesheet" href="~/Template/css/jquery-ui.css" />
+    <script src="~/Template/js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1").datepicker();
+        });
+    </script>
+    <!--//End-date-piker-->
+    <div class="footer">
+        <p>Copyright &copy; 2015 Promenade. Design by <a href="http://w3layouts.com/"> W3layouts</a></p>
+    </div>
+</div>
+<div class="clearfix"></div>
+
