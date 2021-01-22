@@ -7,7 +7,6 @@ using TuristickaAgencija;
 
 namespace TuristickaAgencija.Migrations
 {
-    [DbContext(typeof(Context))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

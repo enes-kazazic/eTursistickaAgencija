@@ -8,7 +8,6 @@ using TuristickaAgencija;
 
 namespace TuristickaAgencija.Migrations
 {
-    [DbContext(typeof(Context))]
     [Migration("20210108210733_incijalna")]
     partial class incijalna
     {
