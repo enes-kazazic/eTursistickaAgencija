@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TuristickaAgencija.EntityModels;
+using TuristickaAgencija.Models;
 using TuristickaAgencija.ViewModels;
 
 namespace TuristickaAgencija.Controllers
@@ -14,10 +14,6 @@ namespace TuristickaAgencija.Controllers
 		public SmjestajController(Context context)
 		{
 			db = context;
-		}
-		public IActionResult Index()
-		{
-			return View();
 		}
 
 		[ActionName("dodaj")]
