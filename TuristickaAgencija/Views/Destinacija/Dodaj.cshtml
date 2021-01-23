@@ -6,7 +6,14 @@
     Layout = "Admin";
 }
 
-@model SmjestajVM
+
+
+<script>
+    $("#destinacije").addClass('active');
+    $("#smjestaj").removeClass('active');
+</script>
+
+@model DestinacijaVM
 
 <div class="col-md-10 banner-right">
     <!--start-booking-->
@@ -16,11 +23,11 @@
                 <div class="col-md-5 booking-top-left">
                     <div class="card-header">
                         <a href="/Smjestaj/Lista" style="cursor: pointer">
-                            <h4 class="card-title">Smještaj</h4>
+                            <h4 class="card-title">Destinacija</h4>
                         </a>
                         <p class="card-category">> Dodaj</p>
                     </div>
-                    <form asp-controller="Smjestaj" asp-action="Dodaj" method="post">
+                    <form asp-controller="Destinacija" asp-action="dodaj" method="post">
                         <div class="booking-form">
                             <div class="b_room">
                                 <div class="booking_room">
@@ -28,33 +35,33 @@
                                         <ul>
                                             <li class="span1_of_1 left">
                                                 <div class="book-text">
-                                                    <h5>Naziv: </h5>
+                                                    <h5>Grad: </h5>
                                                 </div>
                                                 <div class="book_date">
-                                                    <input type="text" asp-for="Naziv">
+                                                    <input type="text" asp-for="Grad">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
                                             <li class="span1_of_1 left">
                                                 <div class="book-text">
-                                                    <h5>Broj ugovora: </h5>
+                                                    <h5>Drzava: </h5>
                                                 </div>
                                                 <div class="book_date">
-                                                    <input type="text" asp-for="BrojUgovora">
+                                                    <input type="text" asp-for="Drzava">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
                                             <li class="span1_of_1 left">
                                                 <div class="book-text">
-                                                    <h5>Provizija po osobi: </h5>
+                                                    <h5>Smjestaj: </h5>
                                                 </div>
                                                 <div class="book_date">
-                                                    <input type="text" asp-for="ProvizijaPoOsobi">
+                                                    <select asp-for="SmjestajID" asp-items="@Model.SmjestajStavke"></select>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
                                             <li class="span1_of_1 left" style="float: right;">
-                                               <input type="submit" value="Dodaj" class="btn btn-style btn-primary" />
+                                                <input type="submit" value="Dodaj" class="btn btn-style btn-primary" />
                                             </li>
                                             <div class="clearfix"></div>
                                         </ul>

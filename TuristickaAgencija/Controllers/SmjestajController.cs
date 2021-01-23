@@ -85,7 +85,7 @@ namespace TuristickaAgencija.Controllers
 
 			db.SaveChanges();
 
-			return Redirect("/Smjestaj/Uredi?smjestajID=" + m.Id);
+			return RedirectToAction("Lista");
 		}
 
 	}
