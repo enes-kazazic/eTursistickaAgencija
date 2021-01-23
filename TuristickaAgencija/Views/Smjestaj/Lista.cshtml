@@ -1,4 +1,4 @@
-﻿@using TuristickaAgencija.ViewModels;
+﻿
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -6,7 +6,8 @@
     int counter = 0;
     Layout = "Admin";
 }
-@model List<SmjestajVM>
+@using TuristickaAgencija.ViewModels
+@model List<TuristickaAgencija.ViewModels.SmjestajVM>
 
 <div class="col-md-10 banner-right">
     <!--start-booking-->

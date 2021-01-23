@@ -1,6 +1,6 @@
 using System;
 
-namespace TuristickaAgencija.Models
+namespace TuristickaAgencija.Data.Models
 {
 	public class ErrorViewModel
 	{

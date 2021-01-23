@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TuristickaAgencija.Migrations
+namespace TuristickaAgencija.Data.Migrations
 {
     public partial class incijalna: Migration
     {
