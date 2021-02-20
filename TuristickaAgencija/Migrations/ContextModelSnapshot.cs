@@ -42,6 +42,81 @@ namespace TuristickaAgencija.Migrations
                     b.ToTable("Destinacije");
                 });
 
+            modelBuilder.Entity("TuristickaAgencija.Data.Models.OdabirSmjestaja", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BrojSobe")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RezervacijaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SmjestajId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VrstaSobe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RezervacijaId");
+
+                    b.HasIndex("SmjestajId");
+
+                    b.ToTable("OdabirSmjestaja");
+                });
+
+            modelBuilder.Entity("TuristickaAgencija.Data.Models.Placanje", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Iznos")
+                        .HasColumnType("float");
+
+                    b.Property<string>("NacinPlacanja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RezervacijaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RezervacijaId");
+
+                    b.ToTable("Placanje");
+                });
+
+            modelBuilder.Entity("TuristickaAgencija.Data.Models.Rezervacija", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BrojRacuna")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Cijena")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rezervacija");
+                });
+
             modelBuilder.Entity("TuristickaAgencija.Data.Models.Smjestaj", b =>
                 {
                     b.Property<int>("Id")
@@ -68,6 +143,24 @@ namespace TuristickaAgencija.Migrations
                     b.HasOne("TuristickaAgencija.Data.Models.Smjestaj", "Smjestaj")
                         .WithMany()
                         .HasForeignKey("SmjestajId");
+                });
+
+            modelBuilder.Entity("TuristickaAgencija.Data.Models.OdabirSmjestaja", b =>
+                {
+                    b.HasOne("TuristickaAgencija.Data.Models.Rezervacija", "Rezervacija")
+                        .WithMany()
+                        .HasForeignKey("RezervacijaId");
+
+                    b.HasOne("TuristickaAgencija.Data.Models.Smjestaj", "Smjestaj")
+                        .WithMany()
+                        .HasForeignKey("SmjestajId");
+                });
+
+            modelBuilder.Entity("TuristickaAgencija.Data.Models.Placanje", b =>
+                {
+                    b.HasOne("TuristickaAgencija.Data.Models.Rezervacija", "Rezervacija")
+                        .WithMany()
+                        .HasForeignKey("RezervacijaId");
                 });
 #pragma warning restore 612, 618
         }
