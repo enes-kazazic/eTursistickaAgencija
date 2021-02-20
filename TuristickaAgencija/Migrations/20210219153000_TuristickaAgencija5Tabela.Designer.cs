@@ -20,29 +20,7 @@ namespace TuristickaAgencija.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("TuristickaAgencija.Data.Models.Destinacija", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Drzava")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Grad")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SmjestajId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SmjestajId");
-
-                    b.ToTable("Destinacije");
-                });
+            
 
             modelBuilder.Entity("TuristickaAgencija.Data.Models.OdabirSmjestaja", b =>
                 {
@@ -117,34 +95,6 @@ namespace TuristickaAgencija.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Rezervacija");
-                });
-
-            modelBuilder.Entity("TuristickaAgencija.Data.Models.Smjestaj", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BrojUgovora")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Naziv")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProvizijaPoOsobi")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Smjestaji");
-                });
-
-            modelBuilder.Entity("TuristickaAgencija.Data.Models.Destinacija", b =>
-                {
-                    b.HasOne("TuristickaAgencija.Data.Models.Smjestaj", "Smjestaj")
-                        .WithMany()
-                        .HasForeignKey("SmjestajId");
                 });
 
             modelBuilder.Entity("TuristickaAgencija.Data.Models.OdabirSmjestaja", b =>
