@@ -15,6 +15,9 @@ namespace TuristickaAgencija
         public DbSet<Placanje> Placanje { get; set; }
         public DbSet<Rezervacija> Rezervacija { get; set; }
         public DbSet<OdabirSmjestaja> OdabirSmjestaja { get; set; }
+        public DbSet<Aranzman> Aranzman { get; set; }
+        public DbSet<DestinacijaAranzman> DestinacijaAranzman { get; set; }
+        public DbSet<Vodic> Vodic{ get; set; }
 
 
         public Context(DbContextOptions<Context> options) : base(options)

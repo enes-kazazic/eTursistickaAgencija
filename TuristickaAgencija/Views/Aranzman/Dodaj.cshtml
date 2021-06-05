@@ -1,0 +1,108 @@
+﻿@using TuristickaAgencija.ViewModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "Admin";
+}
+
+<script>
+    $("#programi").addClass('active');
+    $("#destinacije").removeClass('active');
+    $("#smjestaj").removeClass('active');
+</script>
+
+@model AranzmanDodajVM
+
+<div class="col-md-10 banner-right">
+    <!--start-booking-->
+    <div class="booking">
+        <div class="booking-main">
+            <div class="booking-top">
+                <div class="col-md-5 booking-top-left">
+                    <div class="card-header">
+                        <a href="/Smjestaj/Lista" style="cursor: pointer">
+                            <h4 class="card-title">Aranžman</h4>
+                        </a>
+                        <p class="card-category">> Dodaj</p>
+                    </div>
+                    <form asp-controller="Aranzman" asp-action="dodaj" method="post">
+                        <div class="booking-form">
+                            <div class="b_room">
+                                <div class="booking_room">
+                                    <div class="reservation">
+                                        <ul>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Naziv: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="text" asp-for="Naziv">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Datum pocetka: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="date" asp-for="DatumPocetka" style="width: 100%;border: 1px solid #DFDFDF">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Datum zavrsetka: </h5>
+                                                </div>
+                                                <div class="book_date">
+                                                    <input type="date" asp-for="DatumZavrsetka" style="width: 100%;border: 1px solid #DFDFDF">
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left">
+                                                <div class="book-text">
+                                                    <h5>Vodič: </h5>
+                                                </div>
+                                                <div class="book_date">
+
+                                                    <select asp-for="VodicId" asp-items="@Model.Vodici">
+                                                        <option>Odaberi</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                            <li class="span1_of_1 left" style="float: right;">
+                                                <input type="submit" value="Dodaj" class="btn btn-style btn-primary" />
+                                            </li>
+                                            <div class="clearfix"></div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!---->
+
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+    <!--end-booking-->
+    <!--strat-date-piker-->
+    <link rel="stylesheet" href="~/Template/css/jquery-ui.css" />
+    <script src="~/Template/js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1").datepicker();
+        });
+    </script>
+    <!--//End-date-piker-->
+    <div class="footer">
+        <p>Copyright &copy; 2015 Promenade. Design by <a href="http://w3layouts.com/"> W3layouts</a></p>
+    </div>
+</div>
+<div class="clearfix"></div>
+

@@ -14,7 +14,8 @@ body {
 	background: #efefef;
 }
 
-body a{
+
+body a {
 	transition: 0.5s all ease;
 	-webkit-transition: 0.5s all ease;
 	-moz-transition: 0.5s all ease;
@@ -1279,16 +1280,23 @@ font-size:14px;
 .reservation ul{
 	padding:0;
 }
+#formDetalji ul li {
+	margin: auto;
+	width: 95%;
+    margin-top: 20px;
+}
 .reservation ul li {
 	list-style: none;
 	display:block;
 	margin-top: 20px;
 }
+
+
 ul li button {
 	margin-bottom: 10px;
 }
 .book_date input[type="text"] {
-	width: 100% !important;
+	width: 100% /*!important*/;
 	color: #202e45;
 	font-size: 14px;
 	padding: 8px 23px;
@@ -1308,6 +1316,22 @@ ul li button {
 	width: 75%;
 	float: right;
 }
+
+#vodic {
+    display: flex;
+    justify-content: space-between;
+}
+
+#vodic input[type="button"] {
+    margin-bottom: 0;
+    height: 80%;
+    align-self: center;
+}
+
+.book_date [type=datetime]{
+	padding: 8px 23px;
+}
+
 .book-text h5{
 	color: #202e45;
 	font-size:14px;
