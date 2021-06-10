@@ -24,38 +24,23 @@
                         <a href="/Smjestaj/Lista" style="cursor: pointer">
                             <h4 class="card-title">Aranžman</h4>
                         </a>
-                        <p class="card-category">> Dodaj</p>
+                        <p class="card-category">> Dodijeli vodiča</p>
                     </div>
-                    <form asp-controller="Aranzman" asp-action="dodaj" method="post">
+                    <form asp-controller="Aranzman" asp-action="DodijeliVodica" method="post">
                         <div class="booking-form">
                             <div class="b_room">
                                 <div class="booking_room">
                                     <div class="reservation">
                                         <ul>
+                                            <li>
+                                                <input type="text" asp-for="Id" hidden/>
+                                            </li>
                                             <li class="span1_of_1 left">
                                                 <div class="book-text">
                                                     <h5>Naziv: </h5>
                                                 </div>
                                                 <div class="book_date">
-                                                    <input type="text" asp-for="Naziv">
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Datum pocetka: </h5>
-                                                </div>
-                                                <div class="book_date">
-                                                    <input type="date" asp-for="DatumPocetka" style="width: 100%; border: 1px solid #DFDFDF">
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Datum zavrsetka: </h5>
-                                                </div>
-                                                <div class="book_date">
-                                                    <input type="date" asp-for="DatumZavrsetka" style="width: 100%;border: 1px solid #DFDFDF">
+                                                    <input type="text" disabled asp-for="Naziv">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -72,7 +57,7 @@
                                                 <div class="clearfix"></div>
                                             </li>
                                             <li class="span1_of_1 left" style="float: right;">
-                                                <input type="submit" value="Dodaj" class="btn btn-style btn-primary" />
+                                                <input type="submit" value="Dodaj" class="btn btn-style btn-primary"/>
                                             </li>
                                             <div class="clearfix"></div>
                                         </ul>

@@ -45,7 +45,7 @@ namespace TuristickaAgencija.Controllers
 				DatumPocetka = DateTime.Now,
 				DatumZavrsetka = DateTime.Now
 			};
-
+				
 			return View(model);
 		}
 
@@ -67,6 +67,8 @@ namespace TuristickaAgencija.Controllers
 			db.Aranzman.Add(novi);
 			db.SaveChanges();
 
+			TempData["successMessage"] = "Aranzman Dodan.";
+
 			return RedirectToAction("Lista");
 		}
 
@@ -76,6 +78,8 @@ namespace TuristickaAgencija.Controllers
 
 			db.Aranzman.Remove(aranzman);
 			db.SaveChanges();
+
+			TempData["successDelete"] = "Uspjesno obrisano.";
 
 			return RedirectToAction("Lista");
 		}
@@ -100,24 +104,6 @@ namespace TuristickaAgencija.Controllers
 				}).ToList()
 			};
 
-			//if (aranzman.VodicId == null)
-			//{
-			//	model.Vodici = db.Vodic.Select(i => new SelectListItem()
-			//	{
-			//		Value = i.Id.ToString(),
-			//		Text = i.Ime + ' ' + i.Prezime
-			//	}).ToList();
-			//}
-			//else
-			//{
-			//	model.Vodici = db.Vodic.Select(i => new SelectListItem()
-			//	{
-			//		Value = aranzman.VodicId.ToString(),
-			//		Text = aranzman.Vodic.Ime + ' ' + aranzman.Vodic.Prezime
-			//	}).ToList();
-			//}
-
-
 			return View(model);
 		}
 
@@ -131,6 +117,8 @@ namespace TuristickaAgencija.Controllers
 			aranzman.Naziv = x.Naziv;
 
 			db.SaveChanges();
+
+			TempData["successEdit"] = "Promjene sačuvane.";
 
 			return RedirectToAction("Lista");
 		}
@@ -157,6 +145,33 @@ namespace TuristickaAgencija.Controllers
 			}
 
 			return View(model);
+		}
+
+		public IActionResult DodijeliVodica(int id)
+		{
+			var model = new AranzmanDodajVM()
+			{
+				Id = id,
+				Naziv = db.Aranzman.Find(id).Naziv,
+				Vodici = db.Vodic.Select(i => new SelectListItem()
+				{
+					Text = i.Ime + " " + i.Prezime,
+					Value = i.Id.ToString()
+				}).ToList(),
+			};
+
+			return View(model);
+		}
+
+		[HttpPost]
+		public IActionResult DodijeliVodica(AranzmanDodajVM model)
+		{
+			var aranzman = db.Aranzman.Find(model.Id);
+
+			aranzman.VodicId = model.VodicId;
+			db.SaveChanges();
+
+			return Redirect("/Aranzman/Detalji?id=" + aranzman.Id);
 		}
 	}
 }

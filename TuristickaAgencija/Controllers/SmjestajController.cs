@@ -35,6 +35,9 @@ namespace TuristickaAgencija.Controllers
 			};
 			db.Smjestaji.Add(smjestaj);
 			db.SaveChanges();
+
+			TempData["successMessage"] = "Smještaj dodan.";
+
 			return RedirectToAction("Lista");
 		}
 
@@ -56,6 +59,8 @@ namespace TuristickaAgencija.Controllers
 
 			db.Smjestaji.Remove(smjestaj);
 			db.SaveChanges();
+
+			TempData["successDelete"] = "Uspjesno obrisano.";
 
 			return RedirectToAction("Lista");
 		}
@@ -84,6 +89,8 @@ namespace TuristickaAgencija.Controllers
 			s.ProvizijaPoOsobi = m.ProvizijaPoOsobi;
 
 			db.SaveChanges();
+
+			TempData["successEdit"] = "Promjene sačuvane.";
 
 			return RedirectToAction("Lista");
 		}

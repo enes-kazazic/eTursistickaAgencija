@@ -874,6 +874,11 @@ padding: 8px 20px;
 .twitter-info a:hover{
 color:#000;
 }
+.footer {
+width: inherit;
+position: fixed;
+bottom: 5px;
+}
 .footer p{
 color:#202e45;
 font-size:15px;
@@ -1272,6 +1277,22 @@ font-size:14px;
 .lista .text-primary{
 	color: #ff1654!important;
 }
+
+
+.notification-bottom {
+    height: 20px;
+    width: 100%;
+    background: #43da12;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.notification-bottom p {
+    color: white;
+}
+
 /* --//LISTA-- */
 .date {
 	background: url(../images/icon.png) no-repeat 95% 45%;
@@ -1322,7 +1343,7 @@ ul li button {
     justify-content: space-between;
 }
 
-#vodic input[type="button"] {
+#vodic a{
     margin-bottom: 0;
     height: 80%;
     align-self: center;

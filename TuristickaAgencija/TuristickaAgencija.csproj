@@ -18,8 +18,4 @@
     <ProjectReference Include="..\TuristickaAgencija.Data\TuristickaAgencija.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

@@ -28,122 +28,77 @@
                             <p class="card-category"> Detalji Aranžmana</p>
                         </div>
                         <form id="formDetalji">
-                        <div class="booking-form">
-                            <div class="b_room">
-                                <div class="booking_room">
-                                    <div class="reservation">
-                                        <ul>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Naziv: </h5>
-                                                </div>
-                                                <div class="book_date">
-                                                    <input type="text" asp-for="Naziv" disabled>
-                                                </div>
+                            <div class="booking-form">
+                                <div class="b_room">
+                                    <div class="booking_room">
+                                        <div class="reservation">
+                                            <ul>
+                                                <li class="span1_of_1 left">
+                                                    <div class="book-text">
+                                                        <h5>Naziv: </h5>
+                                                    </div>
+                                                    <div class="book_date">
+                                                        <input type="text" asp-for="Naziv" disabled>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+                                                <li class="span1_of_1 left">
+                                                    <div class="book-text">
+                                                        <h5>Datum pocetka: </h5>
+                                                    </div>
+                                                    <div class="book_date">
+                                                        <input type="datetime" asp-for="DatumPocetka" style="width: 100%;border: 1px solid #DFDFDF" disabled>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+                                                <li class="span1_of_1 left">
+                                                    <div class="book-text">
+                                                        <h5>Datum zavrsetka: </h5>
+                                                    </div>
+                                                    <div class="book_date">
+                                                        <input type="datetime" value="@Model.DatumZavrsetka" style="width: 100%;border: 1px solid #DFDFDF" disabled>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+                                                <li class="span1_of_1 left">
+                                                    <div class="book-text">
+                                                        <h5>Vodič: </h5>
+                                                    </div>
+                                                    <div class="book_date" id="vodic">
+                                                        <input asp-for="VodicId" hidden />
+                                                        @if (Model.VodicId == null)
+                                                        {
+                                                            <input type="text" style="border: 1px solid #DFDFDF; width: inherit" disabled />
+                                                            <a href="/Aranzman/DodijeliVodica?id=@Model.Id"class="btn btn-style btn-primary">
+                                                                Dodijeli vodiča
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <input value="@Model.Vodic" type="text" style="width: 100%; border: 1px solid #DFDFDF" disabled />
+                                                        }
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
                                                 <div class="clearfix"></div>
-                                            </li>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Datum pocetka: </h5>
-                                                </div>
-                                                <div class="book_date">
-                                                    <input type="datetime" asp-for="DatumPocetka" style="width: 100%;border: 1px solid #DFDFDF" disabled>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Datum zavrsetka: </h5>
-                                                </div>
-                                                <div class="book_date">
-                                                    <input type="datetime" value="@Model.DatumZavrsetka" style="width: 100%;border: 1px solid #DFDFDF" disabled>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <li class="span1_of_1 left">
-                                                <div class="book-text">
-                                                    <h5>Vodič: </h5>
-                                                </div>
-                                                <div class="book_date" id="vodic">
-                                                    <input asp-for="VodicId" hidden />
-                                                    @if (Model.VodicId == null)
-                                                    {
-                                                        <input type="text" style="border: 1px solid #DFDFDF; width: inherit" disabled/>
-                                                        <input type="button" value="Dodijeli vodiča" class="btn btn-style btn-primary"/>
-                                                    }
-                                                    else
-                                                    {
-                                                        <input value="@Model.Vodic" type="text" style="width: 100%; border: 1px solid #DFDFDF" disabled/>
-                                                    }
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                            <div class="clearfix"></div>
-                                        </ul>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <!---->
+                                <!---->
 
-                        </div>
+                            </div>
                         </form>
                         <div id="ajaxDiv">
-                            @*<div class="table-responsive">*@
-                            @*<table class="table table-hover">
-                                    <thead class=" text-primary">
-                                        <tr>
-                                            <th>
-                                                ID
-                                            </th> <th>
-                                                Naziv
-                                            </th>
-                                            <th>
-                                                Datum Pocetka
-                                            </th>
-                                            <th>
-                                                Datum Kraja
-                                            </th>
-                                            <th>
-                                                <a href="/Aranzman/Dodaj">
-                                                    <i class="material-icons">add</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (AranzmanListaVm x in Model)
-                                        {
-                                            counter++;
-                                            <tr>
-                                                <td>
-                                                    @counter
-                                                </td>
-                                                <td>
-                                                    @x.Naziv
-                                                </td><td>
-                                                    @x.DatumPocetka
-                                                </td>
-                                                <td>
-                                                    @x.DatumKraja
-                                                </td>
-                                                <td>
-                                                    <a href="/Aranzman/Detalji?id=@x.Id" class="AranzmanListaDetalji">Detalji</a>
-                                                </td>
-                                                <td>
-                                                    <a href="/Aranzman/Uredi?aranzmanId=@x.Id" class="border_color">
-                                                        <i class="material-icons">border_color</i>
-                                                    </a>
-                                                    <a href="/Aranzman/Obrisi?aranzmanId=@x.Id" class="delete">
-                                                        <i class="material-icons">delete</i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>*@
-                            @*</div>*@
+                           
                         </div>
+                        @if (TempData["successDelete"] != null)
+                        {
+                            <div class="notification-bottom">
+                                <p>Uspjesno obrisano</p>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -151,13 +106,42 @@
         </div>
 
     </div>
+
+    @if (TempData["successMessage"] != null)
+    {
+        <div class="alert alert-success" style="text-align: center;">
+            <strong>Uspješno!</strong> @TempData["successMessage"]
+        </div>
+    }
+    else if (TempData["successEdit"] != null)
+    {
+        <div class="alert alert-success" style="text-align: center;">
+            <strong>Uspješno!</strong> @TempData["successEdit"]
+        </div>
+    }
     <!--end-booking-->
     <!--strat-date-piker-->
     <link rel="stylesheet" href="~/Template/css/jquery-ui.css" />
     <script src="~/Template/js/jquery-ui.js"></script>
+
+    <!--AJAX poziv-->
+    <script>
+        $.get("/DestinacijaAranzman/Prikaz?id=" + @Model.Id, function (data, status) {
+            $("#ajaxDiv").html(data);
+        });
+    </script>
+
     <script>
         $(function () {
             $("#datepicker,#datepicker1").datepicker();
+
+            setTimeout(function () {
+                $(".notification-bottom").hide();
+            }, 1000);
+
+            setTimeout(function () {
+                $(".alert").hide();
+            }, 1000);
         });
     </script>
     <!--//End-date-piker-->

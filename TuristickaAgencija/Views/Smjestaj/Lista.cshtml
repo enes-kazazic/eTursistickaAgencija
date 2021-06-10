@@ -75,6 +75,12 @@
                                 </table>
                             </div>
                         </div>
+                        @if (TempData["successDelete"] != null)
+                        {
+                            <div class="notification-bottom">
+                                <p>Uspjesno obrisano</p>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -82,13 +88,34 @@
         </div>
 
     </div>
+    
+    @if (TempData["successMessage"] != null)
+    {
+        <div class="alert alert-success" style="text-align: center;">
+            <strong>Uspješno!</strong> @TempData["successMessage"]
+        </div>
+    }
+    else if (TempData["successEdit"] != null)
+    {
+        <div class="alert alert-success" style="text-align: center;">
+            <strong>Uspješno!</strong> @TempData["successEdit"]
+        </div>
+    }
     <!--end-booking-->
     <!--strat-date-piker-->
     <link rel="stylesheet" href="~/Template/css/jquery-ui.css" />
     <script src="~/Template/js/jquery-ui.js"></script>
     <script>
 					$(function() {
-						$( "#datepicker,#datepicker1" ).datepicker();
+                        $("#datepicker,#datepicker1").datepicker();
+
+                        setTimeout(function () {
+                            $(".notification-bottom").hide();
+                        }, 1000);
+
+                        setTimeout(function () {
+                            $(".alert").hide();
+                        }, 1000);
 						});
     </script>
     <!--//End-date-piker-->
