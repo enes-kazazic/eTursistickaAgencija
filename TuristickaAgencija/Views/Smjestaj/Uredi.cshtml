@@ -6,7 +6,13 @@
     Layout = "Admin";
 }
 
-@model SmjestajUrediVM
+<script>
+    $("#programi").removeClass('active');
+    $("#destinacije").removeClass('active');
+    $("#smjestaj").addClass('active');
+</script>
+
+@model TuristickaAgencija.ViewModels.Smjestaj.SmjestajUrediVM
 
 <div class="col-md-10 banner-right">
     <!--start-booking-->

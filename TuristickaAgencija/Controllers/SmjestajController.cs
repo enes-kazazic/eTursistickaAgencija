@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TuristickaAgencija.ViewModels;
 using TuristickaAgencija.Data.Models;
+using TuristickaAgencija.ViewModels.Smjestaj;
 
 namespace TuristickaAgencija.Controllers
 {

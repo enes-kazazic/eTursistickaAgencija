@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TuristickaAgencija.ViewModels
+﻿namespace TuristickaAgencija.ViewModels.Aranzman
 {
 	public class AranzmanDetaljiVM
 	{
@@ -13,5 +8,7 @@ namespace TuristickaAgencija.ViewModels
 		public string DatumZavrsetka { get; set; }
 		public int? VodicId { get; set; }
 		public string Vodic { get; set; }
+		public int? VozacId{ get; set; }
+		public string Vozac { get; set; }
 	}
 }

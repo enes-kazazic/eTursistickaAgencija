@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.ViewModels;
+using TuristickaAgencija.ViewModels.Aranzman;
 
 namespace TuristickaAgencija.Controllers
 {
@@ -137,6 +138,13 @@ namespace TuristickaAgencija.Controllers
 				Naziv = aranzman.Naziv
 			};
 
+			if (aranzman.VozacId!= null)
+			{
+				var vozac = db.Vozac.Find(aranzman.VozacId);
+				model.VozacId= aranzman.VozacId;
+				model.Vozac = vozac.Ime + " " + vozac.Prezime;
+			}
+
 			if (aranzman.VodicId != null)
 			{
 				var vodic = db.Vodic.Find(aranzman.VodicId);
@@ -170,6 +178,37 @@ namespace TuristickaAgencija.Controllers
 
 			aranzman.VodicId = model.VodicId;
 			db.SaveChanges();
+
+			TempData["successAssign"] = "Vodič dodjeljen.";
+
+			return Redirect("/Aranzman/Detalji?id=" + aranzman.Id);
+		}
+
+		public IActionResult DodijeliVozaca(int id)
+		{
+			var model = new AranzmanDodajVM()
+			{
+				Id = id,
+				Naziv = db.Aranzman.Find(id).Naziv,
+				Vozaci = db.Vozac.Select(i => new SelectListItem()
+				{
+					Text = i.Ime + " " + i.Prezime,
+					Value = i.Id.ToString()
+				}).ToList(),
+			};
+
+			return View(model);
+		}
+
+		[HttpPost]
+		public IActionResult DodijeliVozaca(AranzmanDodajVM model)
+		{
+			var aranzman = db.Aranzman.Find(model.Id);
+
+			aranzman.VozacId = model.VozacId;
+			db.SaveChanges();
+
+			TempData["successAssign"] = "Vozač dodjeljen.";
 
 			return Redirect("/Aranzman/Detalji?id=" + aranzman.Id);
 		}

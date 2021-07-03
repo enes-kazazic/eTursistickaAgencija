@@ -15,7 +15,7 @@
 </script>
 
 @using TuristickaAgencija.ViewModels
-@model AranzmanDetaljiVM
+@model TuristickaAgencija.ViewModels.Aranzman.AranzmanDetaljiVM
 <div class="col-md-10 banner-right">
     <!--start-booking-->
     <div class="booking">
@@ -62,6 +62,26 @@
                                                 </li>
                                                 <li class="span1_of_1 left">
                                                     <div class="book-text">
+                                                        <h5>Vozač: </h5>
+                                                    </div>
+                                                    <div class="book_date" id="vodic">
+                                                        <input asp-for="VozacId" hidden />
+                                                        @if (Model.VozacId == null)
+                                                        {
+                                                            <input type="text" style="border: 1px solid #DFDFDF; width: inherit" disabled />
+                                                            <a href="/Aranzman/DodijeliVozaca?id=@Model.Id" class="btn btn-style btn-primary">
+                                                                Dodijeli vozača
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <input value="@Model.Vozac" type="text" style="width: 100%; border: 1px solid #DFDFDF" disabled />
+                                                        }
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </li>
+                                                <li class="span1_of_1 left">
+                                                    <div class="book-text">
                                                         <h5>Vodič: </h5>
                                                     </div>
                                                     <div class="book_date" id="vodic">
@@ -69,7 +89,7 @@
                                                         @if (Model.VodicId == null)
                                                         {
                                                             <input type="text" style="border: 1px solid #DFDFDF; width: inherit" disabled />
-                                                            <a href="/Aranzman/DodijeliVodica?id=@Model.Id"class="btn btn-style btn-primary">
+                                                            <a href="/Aranzman/DodijeliVodica?id=@Model.Id" class="btn btn-style btn-primary">
                                                                 Dodijeli vodiča
                                                             </a>
                                                         }
@@ -91,7 +111,7 @@
                             </div>
                         </form>
                         <div id="ajaxDiv">
-                           
+
                         </div>
                         @if (TempData["successDelete"] != null)
                         {
@@ -117,6 +137,12 @@
     {
         <div class="alert alert-success" style="text-align: center;">
             <strong>Uspješno!</strong> @TempData["successEdit"]
+        </div>
+    }
+    else if (TempData["successAssign"] != null)
+    {
+        <div class="alert alert-success" style="text-align: center;">
+            <strong>Uspješno!</strong> @TempData["successAssign"]
         </div>
     }
     <!--end-booking-->

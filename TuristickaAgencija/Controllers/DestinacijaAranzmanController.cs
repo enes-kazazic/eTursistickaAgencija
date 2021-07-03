@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.ViewModels;
+using TuristickaAgencija.ViewModels.Destinacija;
 
 namespace TuristickaAgencija.Controllers
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TuristickaAgencija.ViewModels
+﻿namespace TuristickaAgencija.ViewModels.Destinacija
 {
 	public class DestinacijaListaVM
 	{

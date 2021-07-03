@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.ViewModels;
+using TuristickaAgencija.ViewModels.Destinacija;
 
 namespace TuristickaAgencija.Controllers
 {

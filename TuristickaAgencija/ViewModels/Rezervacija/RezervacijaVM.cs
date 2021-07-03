@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace TuristickaAgencija.ViewModels
+namespace TuristickaAgencija.ViewModels.Rezervacija
 {
     public class RezervacijaVM
     {

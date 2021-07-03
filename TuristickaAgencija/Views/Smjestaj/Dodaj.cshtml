@@ -6,7 +6,13 @@
     Layout = "Admin";
 }
 
-@model SmjestajVM
+@model TuristickaAgencija.ViewModels.Smjestaj.SmjestajVM
+
+<script>
+    $("#programi").removeClass('active');
+    $("#destinacije").removeClass('active');
+    $("#smjestaj").addClass('active');
+</script>
 
 <div class="col-md-10 banner-right">
     <!--start-booking-->

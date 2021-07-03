@@ -18,6 +18,7 @@ namespace TuristickaAgencija
         public DbSet<Aranzman> Aranzman { get; set; }
         public DbSet<DestinacijaAranzman> DestinacijaAranzman { get; set; }
         public DbSet<Vodic> Vodic{ get; set; }
+        public DbSet<Vozac> Vozac{ get; set; }
 
 
         public Context(DbContextOptions<Context> options) : base(options)

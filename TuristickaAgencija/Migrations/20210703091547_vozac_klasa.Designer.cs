@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TuristickaAgencija;
 
 namespace TuristickaAgencija.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210703091547_vozac_klasa")]
+    partial class vozac_klasa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,14 +40,9 @@ namespace TuristickaAgencija.Migrations
                     b.Property<int?>("VodicId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VozacId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("VodicId");
-
-                    b.HasIndex("VozacId");
 
                     b.ToTable("Aranzman");
                 });
@@ -250,10 +247,6 @@ namespace TuristickaAgencija.Migrations
                     b.HasOne("TuristickaAgencija.Data.Models.Vodic", "Vodic")
                         .WithMany()
                         .HasForeignKey("VodicId");
-
-                    b.HasOne("TuristickaAgencija.Data.Models.Vozac", "Vozac")
-                        .WithMany()
-                        .HasForeignKey("VozacId");
                 });
 
             modelBuilder.Entity("TuristickaAgencija.Data.Models.Destinacija", b =>

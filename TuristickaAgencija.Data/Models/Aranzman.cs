@@ -12,5 +12,7 @@ namespace TuristickaAgencija.Data.Models
 		public DateTime DatumKraja { get; set; }
 		public int? VodicId { get; set; }
 		public Vodic Vodic { get; set; }
+		public int? VozacId { get; set; }
+		public Vozac Vozac { get; set; }
 	}
 }
