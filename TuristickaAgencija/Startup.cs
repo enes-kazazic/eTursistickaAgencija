@@ -54,7 +54,7 @@ namespace TuristickaAgencija
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller=Aranzman}/{action=Lista}");
 			});
 		}
 	}

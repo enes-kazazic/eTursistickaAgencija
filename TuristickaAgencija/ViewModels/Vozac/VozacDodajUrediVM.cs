@@ -1,4 +1,6 @@
-﻿namespace TuristickaAgencija.ViewModels.Vozac
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TuristickaAgencija.ViewModels.Vozac
 {
 	public class VozacDodajUrediVM
 	{
