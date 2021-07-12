@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var notificationCount = 0;
 }
 
 <!--
@@ -30,56 +31,59 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //for-mobile-apps -->
     <!-- js -->
     <script type="text/javascript" src="~/Template/js/jquery.min.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
     <script type="text/javascript" src="~/js/site.js"></script>
     <!-- js -->
 </head>
 <body>
     <!-- banner -->
-    <div class="banner">
-        <div class="col-md-2 banner-left">
-            <div class="banner-fix">
-                <div class="logo">
-                    <h1>
-                        <a href="index.html">
-                            Balkan Travel
-                        </a>
-                    </h1>
-                </div>
-                <div class="navigation">
-                    <span class="menu"><img src="~/Template/images/menu.png" alt="" /></span>
-                    <ul class="nav1">
-                        @*<li><a href="">Početna</a></li>
+<div class="banner">
+    <div class="col-md-2 banner-left">
+        <div class="banner-fix">
+            <div class="logo">
+                <h1>
+                    <a href="index.html">
+                        Balkan Travel
+                    </a>
+                </h1>
+            </div>
+            <div class="navigation">
+                <span class="menu"><img src="~/Template/images/menu.png" alt="" /></span>
+                <ul class="nav1">
+                    @*<li><a href="">Početna</a></li>
                         <li><span></span></li>*@
-                        <li><a id="prethodni" href="/Uposlenik/ListaPrethodnih">Prethodni aranžmani</a></li>
-                        <li><span></span></li>
-                        <li><a id="nadolazeci" href="/Uposlenik/ListaNadolazecih">Nadolazeći aranžmani</a></li>
-                        <li><span></span></li>
-                        <li><a href="">Račun</a></li>
-                    </ul>
-                    <!-- script for menu -->
-                    <script>
+                    <li><a id="prethodni" href="/Uposlenik/ListaPrethodnih">Prethodni aranžmani</a></li>
+                    <li><span></span></li>
+                    <li><a id="nadolazeci" href="/Uposlenik/ListaNadolazecih">Nadolazeći aranžmani
+                        <div id="notification" style="display: none">@notificationCount</div>
+                        </a></li>
+                    <li><span></span></li>
+                    <li><a href="">Račun</a></li>
+                </ul>
+                <!-- script for menu -->
+                <script>
 
-											$( "span.menu" ).click(function() {
-											$( "ul.nav1" ).slideToggle( 300, function() {
-											 // Animation complete.
-											});
-											});
-                    </script>
-                    <!-- //script for menu -->
-                </div>
-                <div class="social-icons">
-                    <ul>
-                        <li><a class="square" href="#"></a></li>
-                        <li><a class="twitt" href="#"></a></li>
-                        <li><a class="facebook" href="#"></a></li>
-                    </ul>
-                </div>
+                    $( "span.menu" ).click(function() {
+                        $( "ul.nav1" ).slideToggle( 300, function() {
+                            // Animation complete.
+                        });
+                    });
+                </script>
+                <!-- //script for menu -->
+            </div>
+            <div class="social-icons">
+                <ul>
+                    <li><a class="square" href="#"></a></li>
+                    <li><a class="twitt" href="#"></a></li>
+                    <li><a class="facebook" href="#"></a></li>
+                </ul>
             </div>
         </div>
-        <div class="Blank">
-            @RenderBody();
-        </div>
     </div>
+    <div class="Blank">
+        @RenderBody();
+    </div>
+</div>
     <!-- //banner -->
 </body>
 </html>

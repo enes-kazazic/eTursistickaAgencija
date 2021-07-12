@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TuristickaAgencija.SignalR;
 
 namespace TuristickaAgencija
 {
@@ -28,6 +29,7 @@ namespace TuristickaAgencija
 			options.UseSqlServer(
 				Configuration.GetConnectionString("DefaultConnection")));
 			services.AddControllersWithViews();
+			services.AddSignalR();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +57,7 @@ namespace TuristickaAgencija
 				endpoints.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Aranzman}/{action=Lista}");
+				endpoints.MapHub<MyHub>("/myhub");
 			});
 		}
 	}

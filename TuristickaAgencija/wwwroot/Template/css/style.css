@@ -192,6 +192,15 @@ min-height:665px;
 	display:none;
 }
 
+#notification {
+	display: inline-block;
+    border-radius: 15px;
+    background: indianred;
+    color: white;
+    width: 20px;
+    font-size: 13px;
+}
+
 .dropdown {
     position: relative;
 }

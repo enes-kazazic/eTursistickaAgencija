@@ -3,18 +3,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
 using TuristickaAgencija.ViewModels;
 using TuristickaAgencija.Data.Models;
+using TuristickaAgencija.SignalR;
 using TuristickaAgencija.ViewModels.Smjestaj;
 
 namespace TuristickaAgencija.Controllers
 {
 	public class SmjestajController : Controller
 	{
-		Context db;
-		public SmjestajController(Context context)
+		private Context db;
+
+		public SmjestajController(Context db)
 		{
-			db = context;
+			this.db = db;
 		}
 
 		[ActionName("dodaj")]

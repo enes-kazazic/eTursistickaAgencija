@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TuristickaAgencija.Data.Models;
+using TuristickaAgencija.SignalR;
 using TuristickaAgencija.ViewModels;
 using TuristickaAgencija.ViewModels.Aranzman;
 
@@ -15,10 +17,12 @@ namespace TuristickaAgencija.Controllers
 	public class AranzmanController : Controller
 	{
 		private Context db;
+		private IHubContext<MyHub> _hubContext;
 
-		public AranzmanController(Context db)
+		public AranzmanController(Context db, IHubContext<MyHub> hubContext)
 		{
 			this.db = db;
+			_hubContext = hubContext;
 		}
 
 		public IActionResult Lista()
@@ -181,6 +185,8 @@ namespace TuristickaAgencija.Controllers
 
 			TempData["successAssign"] = "Vodič dodjeljen.";
 
+			_hubContext.Clients.All.SendAsync("ReceiveMessage", "new");
+
 			return Redirect("/Aranzman/Detalji?id=" + aranzman.Id);
 		}
 
@@ -207,6 +213,8 @@ namespace TuristickaAgencija.Controllers
 
 			aranzman.VozacId = model.VozacId;
 			db.SaveChanges();
+
+			_hubContext.Clients.All.SendAsync("ReceiveMessage", "new");
 
 			TempData["successAssign"] = "Vozač dodjeljen.";
 
