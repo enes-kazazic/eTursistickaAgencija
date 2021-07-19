@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TuristickaAgencija", "TuristickaAgencija\TuristickaAgencija.csproj", "{E1CA2AAC-EAD0-47CE-94C8-29C717FD6E4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuristickaAgencija.Data", "TuristickaAgencija.Data\TuristickaAgencija.Data.csproj", "{9DC4C5C3-606E-41A8-ABC4-465462A9443A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TuristickaAgencija.Data", "TuristickaAgencija.Data\TuristickaAgencija.Data.csproj", "{9DC4C5C3-606E-41A8-ABC4-465462A9443A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
