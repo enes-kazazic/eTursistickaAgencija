@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
+using TuristickaAgencija.Data;
 using TuristickaAgencija.ViewModels;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.SignalR;

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AspNetCore.Reporting;
 using Microsoft.EntityFrameworkCore;
 using TmpReportDesign;
+using TuristickaAgencija.Data;
 
 namespace TuristickaAgencija.Controllers
 {

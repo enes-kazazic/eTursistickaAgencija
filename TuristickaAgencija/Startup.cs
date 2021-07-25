@@ -9,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TuristickaAgencija.Data;
+using TuristickaAgencija.Data.Repositories;
+using TuristickaAgencija.Helper;
 using TuristickaAgencija.SignalR;
 
 namespace TuristickaAgencija
@@ -30,6 +33,9 @@ namespace TuristickaAgencija
 				Configuration.GetConnectionString("DefaultConnection")));
 			services.AddControllersWithViews();
 			services.AddSignalR();
+
+			services.AddScoped<ILoggingRepository, LoggingRepository>();
+			services.AddScoped<DblExceptionFilter>();
 
 			services.AddCors(option =>
 			{

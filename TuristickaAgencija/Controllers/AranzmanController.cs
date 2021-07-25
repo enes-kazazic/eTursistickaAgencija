@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using TuristickaAgencija.Data;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.SignalR;
 using TuristickaAgencija.ViewModels;

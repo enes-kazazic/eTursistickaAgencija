@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TuristickaAgencija.Data;
 using TuristickaAgencija.Data.Models;
 using TuristickaAgencija.ViewModels;
 using TuristickaAgencija.ViewModels.Vozac;

@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TuristickaAgencija.Data.Models;
-using TuristickaAgencija.ViewModels;
 
-namespace TuristickaAgencija
+namespace TuristickaAgencija.Data
 {
 	public class Context:DbContext
 	{
@@ -19,6 +14,7 @@ namespace TuristickaAgencija
         public DbSet<DestinacijaAranzman> DestinacijaAranzman { get; set; }
         public DbSet<Vodic> Vodic{ get; set; }
         public DbSet<Vozac> Vozac{ get; set; }
+        public DbSet<ExceptionLogger> ExceptionLogger { get; set; }
 
 
         public Context(DbContextOptions<Context> options) : base(options)
